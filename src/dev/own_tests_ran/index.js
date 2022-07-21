@@ -11,7 +11,7 @@ import { run } from '@kbn/dev-cli-runner';
 import { REPO_ROOT } from '@kbn/utils';
 // import yaml from 'js-yaml';
 // import { readFileSync } from "fs";
-import { resolve } from "path";
+import { resolve } from 'path';
 
 const flags = {
   string: ['path'],
@@ -26,7 +26,6 @@ export function runCheckOwnTestsRanCli() {
   run(
     ({ flags, log }) => {
       log.info('\n### Running runCheckOwnTestsRanCli()');
-
 
       // yaml.load(readFileSync(resolveRoot('src/dev/own_tests_ran/test_roots.yml'), 'utf8'))
       //   .general
