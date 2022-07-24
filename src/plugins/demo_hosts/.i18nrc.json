@@ -1,0 +1,7 @@
+{
+  "prefix": "demoHosts",
+  "paths": {
+    "demoHosts": "."
+  },
+  "translations": ["translations/en.json"]
+}

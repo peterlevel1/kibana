@@ -1,0 +1,21 @@
+$width: 18px;
+$height: $width;
+
+.HostStatus {
+  display: inline-block;
+  width: $width;
+  height: $height;
+  border-radius: 50%;
+
+  &.red {
+    background-color: #C92E3A;
+  }
+
+  &.yellow {
+    background-color: #FCC438;
+  }
+
+  &.green {
+    background-color: #7AB548;
+  }
+}
