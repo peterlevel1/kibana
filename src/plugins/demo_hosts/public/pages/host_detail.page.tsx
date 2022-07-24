@@ -1,12 +1,7 @@
 import React, { FC, useState, useEffect, useCallback } from 'react';
 import { I18nProvider } from '@kbn/i18n/react';
 import { i18n } from '@kbn/i18n';
-import {
-  EuiButton,
-  EuiPage,
-  EuiPageBody,
-  EuiPageHeader,
-} from '@elastic/eui';
+import { EuiButton, EuiPage, EuiPageBody, EuiPageHeader } from '@elastic/eui';
 import { IDataSourceItem, IHostDetailPageProps } from '../types';
 import { getHostDetail } from '../services';
 import './host_detail.page.scss';
@@ -19,11 +14,11 @@ const clsContent = `${name}-content`;
 const clsDescription = `${clsContent}-description`;
 
 export const HostDetailPage: FC<IHostDetailPageProps> = ({ id, application }) => {
-  const [ defail, setDetail ] = useState<IDataSourceItem | null>(null);
+  const [defail, setDetail] = useState<IDataSourceItem | null>(null);
 
   useEffect(() => {
-    getHostDetail(id).then(setDetail)
-  }, [getHostDetail, setDetail, id]);
+    getHostDetail(id).then(setDetail);
+  }, [id]);
 
   const onGotoDashboard = useCallback(() => {
     application.navigateToUrl('/app/kibana_overview');
@@ -36,14 +31,10 @@ export const HostDetailPage: FC<IHostDetailPageProps> = ({ id, application }) =>
           <EuiPageHeader>
             <div className={clsHeader}>
               <aside>
-                <div className={clsHostName}>
-                  {defail?.hostName}
-                </div>
+                <div className={clsHostName}>{defail?.hostName}</div>
               </aside>
               <main>
-                <EuiButton
-                  onClick={onGotoDashboard}
-                >
+                <EuiButton onClick={onGotoDashboard}>
                   {i18n.translate('demoHosts.detail.dashboard', { defaultMessage: 'dashboard' })}
                 </EuiButton>
               </main>
@@ -51,9 +42,7 @@ export const HostDetailPage: FC<IHostDetailPageProps> = ({ id, application }) =>
           </EuiPageHeader>
           <EuiPageBody>
             <div className={clsContent}>
-              <p className={clsDescription}>
-                {defail?.description}
-              </p>
+              <p className={clsDescription}>{defail?.description}</p>
             </div>
           </EuiPageBody>
         </EuiPageBody>

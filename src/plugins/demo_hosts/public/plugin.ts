@@ -1,5 +1,11 @@
 import { i18n } from '@kbn/i18n';
-import { AppMountParameters, CoreSetup, CoreStart, Plugin, DEFAULT_APP_CATEGORIES } from '../../../core/public';
+import {
+  AppMountParameters,
+  CoreSetup,
+  CoreStart,
+  Plugin,
+  DEFAULT_APP_CATEGORIES,
+} from '../../../core/public';
 import { DemoHostsPluginSetup, DemoHostsPluginStart, AppPluginStartDependencies } from './types';
 import { PLUGIN_NAME } from '../common';
 
@@ -9,7 +15,7 @@ export class DemoHostsPlugin implements Plugin<DemoHostsPluginSetup, DemoHostsPl
     core.application.register({
       id: 'demoHosts',
       title: i18n.translate('demoHosts.title', {
-        defaultMessage: 'Atlastix infrastructure'
+        defaultMessage: 'Atlastix infrastructure',
       }),
       category: DEFAULT_APP_CATEGORIES.management,
       async mount(params: AppMountParameters) {

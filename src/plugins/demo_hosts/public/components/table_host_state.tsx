@@ -2,7 +2,7 @@ import React, { useCallback, FC, MouseEvent } from 'react';
 import { i18n } from '@kbn/i18n';
 import { EuiBasicTable } from '@elastic/eui';
 import { HostStatus } from './host_status';
-import { EnumHostStates, ITableHostStateProps } from '../types';
+import { EnumHostStates, IDataSourceItem, ITableHostStateProps } from '../types';
 import './table_host_state.scss';
 
 const name = 'TableHostState';
@@ -32,16 +32,18 @@ const columns = [
 ];
 
 export const TableHostState: FC<ITableHostStateProps> = ({ dataSource, onClickRow }) => {
-
-  const getRowProps = useCallback((item) => {
-    return {
-      key: item.id,
-      onClick(ev: MouseEvent<HTMLElement>) {
-        ev.preventDefault();
-        onClickRow(item);
-      },
-    };
-  }, [onClickRow]);
+  const getRowProps = useCallback(
+    (item: IDataSourceItem) => {
+      return {
+        key: item.id,
+        onClick(ev: MouseEvent<HTMLElement>) {
+          ev.preventDefault();
+          onClickRow(item);
+        },
+      };
+    },
+    [onClickRow]
+  );
 
   return (
     <EuiBasicTable

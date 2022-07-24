@@ -5,10 +5,13 @@ import { HostStatePage } from '../pages/host_state.page';
 import { HostDetailPage } from '../pages/host_detail.page';
 import { IDemoHostsLayoutProps, IDetailParams } from '../types';
 
-export const DefaultLayout: FC<IDemoHostsLayoutProps> = ({application, history}) => {
-  const renderHostDetailPage = useCallback(({ match }: RouteComponentProps<IDetailParams>) => {
-    return <HostDetailPage application={application} id={match.params.id} />;
-  }, [ application ]);
+export const DefaultLayout: FC<IDemoHostsLayoutProps> = ({ application, history }) => {
+  const renderHostDetailPage = useCallback(
+    ({ match }: RouteComponentProps<IDetailParams>) => {
+      return <HostDetailPage application={application} id={match.params.id} />;
+    },
+    [application]
+  );
 
   return (
     <I18nProvider>

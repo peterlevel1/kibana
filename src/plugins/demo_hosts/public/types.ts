@@ -35,11 +35,11 @@ export interface IDataSourceItem {
 }
 
 export interface IHostStatePageProps {
-  history: History
+  history: History;
 }
 
 export interface IHostDetailPageProps {
-  application: ApplicationStart
+  application: ApplicationStart;
   id: string;
 }
 
